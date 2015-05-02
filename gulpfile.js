@@ -1,0 +1,41 @@
+var elixir = require('laravel-elixir');
+
+elixir(function(mix) {
+    mix.phpUnit();
+    mix.copy(
+        'vendor/bower_components/jquery/dist/jquery.min.js',
+        'public/js/jquery.min.js'
+    )
+    .copy(
+        'vendor/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.min.js',
+        'public/js/bootstrap.min.js'
+    )
+    .copy(
+        'vendor/bower_components/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.eot',
+        'public/fonts/glyphicons-halflings-regular.eot'
+    )
+    .copy(
+        'vendor/bower_components/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.svg',
+        'public/fonts/glyphicons-halflings-regular.svg'
+    )
+    .copy(
+        'vendor/bower_components/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.ttf',
+        'public/fonts/glyphicons-halflings-regular.ttf'
+    )
+    .copy(
+        'vendor/bower_components/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.woff',
+        'public/fonts/glyphicons-halflings-regular.woff'
+    )
+    .copy(
+        'vendor/bower_components/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.woff2',
+        'public/fonts/glyphicons-halflings-regular.woff2'
+    )
+    .copy(
+        'vendor/bower_components/croppic/croppic.min.js',
+        'public/js/croppic.min.js'
+    )
+    .copy(
+        'vendor/bower_components/croppic/assets/css/croppic.css',
+        'public/css/croppic.css'
+    );
+});

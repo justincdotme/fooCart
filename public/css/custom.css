@@ -1,0 +1,35 @@
+/*
+* custom.css
+* This file is used to override the Bootstrap CSS defaults.
+*/
+.carousel-inner {
+  max-height: 400px !important; }
+
+a:hover {
+  text-decoration: none; }
+
+.navbar-nav .open .dropdown-menu {
+  background-color: #222; }
+
+.dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
+  background-color: #000;
+  color: #eee;
+  text-decoration: none; }
+
+.navbar-nav .open .dropdown-menu > li > a:link {
+  color: #FFF; }
+
+div.jumbotron {
+  background-color: #d1d1d1; }
+
+.navbar-main .dropdown-menu li a:visited {
+  color: #ccc; }
+
+ul.shop-pagination.pagination {
+  margin: 4px 0; }
+
+.modal-backdrop {
+  position: fixed;
+  bottom: 0; }
+
+/*# sourceMappingURL=custom.css.map */
