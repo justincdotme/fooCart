@@ -21,6 +21,8 @@
  **View Demo**
  
  [http://foocart.demos.justinc.me](http://foocart.demos.justinc.me)
+
+ [http://foocart.demos.justinc.me/admin](http://foocart.demos.justinc.me/admin)
  
  **Username:** demo.user@justinc.me
  
