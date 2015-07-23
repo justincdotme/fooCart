@@ -31,6 +31,7 @@
 ## Requirements
  - This application requires the Composer Dependency Manager, located at [getcomposer.org](https://getcomposer.org/)
  - This application requires a Stripe account with API keys.
+ - This application is configured to use the Mandrill email API and requires a Mandrill account. 
 
 ## Installation
 
@@ -41,13 +42,13 @@
  Install the application using Composer
  
     composer install
-
+    
  Configure your environment as per the Laravel documentation then run the migrations+seeds
  
     php artisan migrate
     php artisan db:seed
-
-  Set your Stripe API keys in config/stripe.php
+    
+ Set your Stripe API keys in config/stripe.php
  
     return [
         'secret_key' => env('SECRET_KEY', 'secret key here'),
@@ -65,8 +66,8 @@
     'port' => 587,
     'from' => ['address' => 'no-reply@your-server.com', 'name' => 'Name'],
     'username' => 'Mandrill username',
-    'password' => 'Mandrill key'
-
+    'password' => 'Mandrill key',
+    
  Configure return email addresses for outgoing email messages in config/messages.php
  
     return [
@@ -75,6 +76,7 @@
         'site_admin' => 'email@address.com'
     
     ];
+    
  
  **IMPORTANT NOTICE**
  
@@ -85,6 +87,7 @@
 
 ## Credits
 
+ - [CropPic](http://www.croppic.net) for free use of the CropPic plugin.
  - All product images are courtesy of [FreeDigitalPhotos.net](FreeDigitalPhotos.net).
 
 ## License
