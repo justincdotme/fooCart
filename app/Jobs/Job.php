@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs;
+namespace fooCart\Jobs;
 
 use Illuminate\Bus\Queueable;
 

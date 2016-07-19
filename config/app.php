@@ -153,10 +153,10 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        fooCart\Providers\AppServiceProvider::class,
+        fooCart\Providers\AuthServiceProvider::class,
+        fooCart\Providers\EventServiceProvider::class,
+        fooCart\Providers\RouteServiceProvider::class,
 
     ],
 

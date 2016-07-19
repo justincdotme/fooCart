@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Core;
+namespace fooCart\Core;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
