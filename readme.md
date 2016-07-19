@@ -1,5 +1,5 @@
 # fooCart
- fooCart is a Laravel 5.2 eCommerce application with integrated Stripe payments. 
+ fooCart is a Laravel 5 eCommerce application with integrated Stripe payments. 
  
  The goal of this project was to create a fully functional e-commerce application.
  
@@ -43,11 +43,6 @@
  
     composer install
     
- Configure your environment as per the Laravel documentation then run the migrations+seeds
- 
-    php artisan migrate
-    php artisan db:seed
-    
  Set your Stripe API keys in config/stripe.php
  
     return [
@@ -67,16 +62,6 @@
     'from' => ['address' => 'no-reply@your-server.com', 'name' => 'Name'],
     'username' => 'Mandrill username',
     'password' => 'Mandrill key',
-    
- Configure return email addresses for outgoing email messages in config/messages.php
- 
-    return [
-    
-        //Website admin email
-        'site_admin' => 'email@address.com'
-    
-    ];
-    
  
  **IMPORTANT NOTICE**
  

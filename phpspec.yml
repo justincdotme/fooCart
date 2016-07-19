@@ -1,5 +1,0 @@
-suites:
-    main:
-        namespace: fooCart
-        psr4_prefix: fooCart
-        src_path: app
