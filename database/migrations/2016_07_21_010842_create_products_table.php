@@ -14,7 +14,10 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function(Blueprint $table) {
-
+            $table->increments('id');
+            $table->timestamp('active_on')->nullable();
+            $table->timestamp('expires_on')->nullable();
+            $table->timestamps();
         });
     }
 
