@@ -17,7 +17,7 @@ class CreateInvoiceItemsTable extends Migration
             $table->increments('id');
             $table->string('sku')->nullable();
             $table->string('manufacturer')->nullable();
-            $table->integer('type_id') //Shipping charge, line item, product, etc
+            $table->integer('type_id') //line item, product, etc
                 ->unsigned()
                 ->index();
             $table->foreign('type_id')
@@ -42,6 +42,7 @@ class CreateInvoiceItemsTable extends Migration
             $table->string('name');
             $table->integer('quantity');
             $table->decimal('unit_price', 19, 2);
+            $table->decimal('weight', 19, 2);
             $table->integer('tax_id')
                 ->unsigned()
                 ->index();

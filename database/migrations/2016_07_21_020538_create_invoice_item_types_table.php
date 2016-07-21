@@ -14,7 +14,12 @@ class CreateInvoiceItemTypesTable extends Migration
     public function up()
     {
         Schema::create('invoice_item_types', function(Blueprint $table) {
-
+            $table->increments('id');
+            $table->string('type')
+                ->unique();
+            $table->text('description')
+                ->nullable();
+            $table->timestamps();
         });
     }
 

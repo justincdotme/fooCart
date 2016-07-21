@@ -27,7 +27,8 @@ class CreateUsersTable extends Migration
                 ->references('id')
                 ->on('roles')
                 ->onDelete('cascade');
-            $table->boolean('active')->default('true');
+            $table->boolean('active')
+                ->default('true');
             $table->rememberToken();
             $table->timestamps();
         });
