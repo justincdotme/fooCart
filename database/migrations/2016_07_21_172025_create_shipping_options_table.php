@@ -4,7 +4,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\Schema;
 
-class CreateShippingTypesTable extends Migration
+class CreateShippingOptionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,16 @@ class CreateShippingTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('shipping_types', function(Blueprint $table) {
+        Schema::create('shipping_options', function(Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('delivery_time')->nullable();
             $table->decimal('rate', 19, 2)->nullable();
             $table->string('rate_measurement')->nullable();
+            $table->timestamp('active_on')
+                ->nullable();
+            $table->timestamp('expires_on')
+                ->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +34,6 @@ class CreateShippingTypesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('shipping_types');
+        Schema::drop('shipping_options');
     }
 }
