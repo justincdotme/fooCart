@@ -29,17 +29,20 @@ class CreateInvoicesTable extends Migration
                 ->references('id')
                 ->on('invoice_statuses')
                 ->onDelete('cascade');
-            $table->timestamp('completed_on');
+            $table->timestamp('completed_on')
+                ->nullable();
             $table->integer('bankcard_id')
                 ->unsigned()
-                ->index();
+                ->index()
+                ->nullable();
             $table->foreign('bankcard_id')
                 ->references('id')
                 ->on('id')
                 ->onDelete('bankcards');
             $table->integer('promo_code_id')
                 ->unsigned()
-                ->index();
+                ->index()
+                ->nullable();
             $table->foreign('promo_code_id')
                 ->references('id')
                 ->on('promo_codes')

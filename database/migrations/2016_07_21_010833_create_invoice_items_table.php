@@ -17,7 +17,7 @@ class CreateInvoiceItemsTable extends Migration
             $table->increments('id');
             $table->string('sku')->nullable();
             $table->string('manufacturer')->nullable();
-            $table->integer('type_id')
+            $table->integer('type_id') //Shipping charge, line item, product, etc
                 ->unsigned()
                 ->index();
             $table->foreign('type_id')
@@ -33,7 +33,8 @@ class CreateInvoiceItemsTable extends Migration
                 ->onDelete('cascade');
             $table->integer('shipment_id')
                 ->unsigned()
-                ->index();
+                ->index()
+                ->nullable();
             $table->foreign('shipment_id')
                 ->references('id')
                 ->on('shipments')

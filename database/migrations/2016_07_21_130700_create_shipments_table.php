@@ -30,7 +30,10 @@ class CreateShipmentsTable extends Migration
                 ->on('shipping_types')
                 ->onDelete('cascade');
             $table->decimal('shipping_cost', 19, 2);
-            $table->timestamp('shipped_on');
+            $table->string('tracking_number')
+                ->nullable();
+            $table->timestamp('shipped_on')
+                ->nullable();
         });
     }
 
