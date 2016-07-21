@@ -30,14 +30,6 @@ class CreateInvoicesTable extends Migration
                 ->on('invoice_statuses')
                 ->onDelete('cascade');
             $table->timestamp('completed_on');
-            $table->timestamp('shipped_on');
-            $table->integer('shipping_type_id')
-                ->unsigned()
-                ->index();
-            $table->foreign('shipping_type_id')
-                ->references('id')
-                ->on('shipping_types')
-                ->onDelete('cascade');
             $table->integer('bankcard_id')
                 ->unsigned()
                 ->index();
