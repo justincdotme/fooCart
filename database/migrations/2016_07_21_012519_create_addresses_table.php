@@ -14,7 +14,21 @@ class CreateAddressesTable extends Migration
     public function up()
     {
         Schema::create('addresses', function(Blueprint $table) {
-
+            $table->increments('id');
+            $table->integer('user_id')
+                ->unsigned()
+                ->default();
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+            $table->string('street_1');
+            $table->string('street_2')
+                ->nullable();
+            $table->string('city');
+            $table->string('state');
+            $table->integer('zip');
+            $table->enum('type', ['shipping', 'billing']);
         });
     }
 
