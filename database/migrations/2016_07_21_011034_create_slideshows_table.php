@@ -14,7 +14,10 @@ class CreateSlideshowsTable extends Migration
     public function up()
     {
         Schema::create('slideshows', function(Blueprint $table) {
-
+            $table->increments('id');
+            $table->string('name')
+                ->nullable();
+            $table->timestamps();
         });
     }
 

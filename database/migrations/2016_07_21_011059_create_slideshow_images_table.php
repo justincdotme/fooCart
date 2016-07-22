@@ -14,7 +14,23 @@ class CreateSlideshowImagesTable extends Migration
     public function up()
     {
         Schema::create('slideshow_images', function(Blueprint $table) {
-
+            $table->increments('id');
+            $table->integer('slideshow_id')
+                ->unsigned()
+                ->index();
+            $table->foreign('slideshow_id')
+                ->references('id')
+                ->on('slideshows')
+                ->onDelete('cascade');
+            $table->string('href')
+                ->nullable();
+            $table->string('alt_text')
+                ->nullable();
+            $table->integer('sequence')
+                ->nullable();
+            $table->string('image_path');
+            $table->boolean('active');
+            $table->timestamps();
         });
     }
 
