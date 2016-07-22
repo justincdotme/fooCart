@@ -24,13 +24,6 @@ class CreateInvoiceItemsTable extends Migration
                 ->references('id')
                 ->on('invoice_item_types')
                 ->onDelete('cascade');
-            $table->integer('invoice_id')
-                ->unsigned()
-                ->index();
-            $table->foreign('invoice_id')
-                ->references('id')
-                ->on('invoices')
-                ->onDelete('cascade');
             $table->integer('shipment_id')
                 ->unsigned()
                 ->index()
