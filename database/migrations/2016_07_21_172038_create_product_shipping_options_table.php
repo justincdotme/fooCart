@@ -14,7 +14,20 @@ class CreateProductShippingOptionsTable extends Migration
     public function up()
     {
         Schema::create('product_shipping_options', function(Blueprint $table) {
-
+            $table->integer('product_id')
+                ->unsigned()
+                ->index();
+            $table->foreign('product_id')
+                ->references('id')
+                ->on('products')
+                ->onDelete('cascade');
+            $table->integer('shipping_option_id')
+                ->unsigned()
+                ->index();
+            $table->foreign('shipping_option_id')
+                ->references('id')
+                ->on('shipping_options')
+                ->onDelete('cascade');
         });
     }
 

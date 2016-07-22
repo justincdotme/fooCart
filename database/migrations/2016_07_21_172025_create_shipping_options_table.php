@@ -16,9 +16,12 @@ class CreateShippingOptionsTable extends Migration
         Schema::create('shipping_options', function(Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('delivery_time')->nullable();
-            $table->decimal('rate', 19, 2)->nullable();
-            $table->string('rate_measurement')->nullable();
+            $table->string('delivery_time')
+                ->nullable();
+            $table->decimal('rate', 19, 2)
+                ->nullable();
+            $table->string('rate_measurement')
+                ->nullable();
             $table->timestamp('active_on')
                 ->nullable();
             $table->timestamp('expires_on')
