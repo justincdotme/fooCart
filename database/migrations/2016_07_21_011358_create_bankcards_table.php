@@ -14,7 +14,16 @@ class CreateBankcardsTable extends Migration
     public function up()
     {
         Schema::create('bankcards', function(Blueprint $table) {
-
+            $table->increments('id');
+            $table->integer('user_id')
+                ->unsigned()
+                ->default();
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+            $table->string('stripe_id');
+            $table->timestamps();
         });
     }
 
