@@ -1,5 +1,6 @@
 # fooCart
  **This is the latest version of the fooCart application and it is currently under development. The old, stable version is now located in the legacy branch.**
+ 
  fooCart is a Laravel 5.2 eCommerce application with integrated Stripe payments. 
  
  The goal of this project was to create a fully functional e-commerce application.
