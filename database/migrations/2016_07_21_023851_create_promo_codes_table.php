@@ -16,8 +16,11 @@ class CreatePromoCodesTable extends Migration
         Schema::create('promo_codes', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->string('name')->unique();
+            $table->string('name')
+                ->unique();
+            $table->enum('type', ['percentage', 'amount']);
             $table->decimal('discount_amount', 19, 2);
+            $table->decimal('discount_percent', 4, 4);
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ class CreatePromoCodesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('promo_codes');
     }
 }
