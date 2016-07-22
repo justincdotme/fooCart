@@ -15,8 +15,10 @@ class CreateInvoiceItemsTable extends Migration
     {
         Schema::create('invoice_items', function(Blueprint $table) {
             $table->increments('id');
-            $table->string('sku')->nullable();
-            $table->string('manufacturer')->nullable();
+            $table->string('sku')
+                ->nullable();
+            $table->string('manufacturer')
+                ->nullable();
             $table->integer('type_id') //line item, product, etc
                 ->unsigned()
                 ->index();

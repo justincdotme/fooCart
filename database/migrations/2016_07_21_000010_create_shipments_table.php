@@ -29,6 +29,13 @@ class CreateShipmentsTable extends Migration
                 ->references('id')
                 ->on('shipping_options')
                 ->onDelete('cascade');
+            $table->integer('shipping_address_id')
+            ->unsigned()
+                ->index();
+            $table->foreign('shipping_address_id')
+                ->references('id')
+                ->on('addresses')
+                ->onDelete('cascade');
             $table->decimal('shipping_cost', 19, 2);
             $table->string('tracking_number')
                 ->nullable();

@@ -37,8 +37,8 @@ class CreateInvoicesTable extends Migration
                 ->nullable();
             $table->foreign('bankcard_id')
                 ->references('id')
-                ->on('id')
-                ->onDelete('bankcards');
+                ->on('bankcards')
+                ->onDelete('cascade');
             $table->integer('promo_code_id')
                 ->unsigned()
                 ->index()
