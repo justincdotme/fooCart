@@ -21,6 +21,10 @@ class CreatePromoCodesTable extends Migration
             $table->enum('type', ['percentage', 'amount']);
             $table->decimal('discount_amount', 19, 2);
             $table->decimal('discount_percent', 4, 4);
+            $table->timestamp('active_on')
+                ->nullable();
+            $table->timestamp('expires_on')
+                ->nullable();
             $table->timestamps();
         });
     }
