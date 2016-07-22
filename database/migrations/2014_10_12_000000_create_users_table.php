@@ -21,8 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('secondary_email')->nullable();
             $table->string('password');
             $table->integer('role_id')
-                ->unsigned()
-                ->default();
+                ->unsigned();
             $table->foreign('role_id')
                 ->references('id')
                 ->on('roles')
