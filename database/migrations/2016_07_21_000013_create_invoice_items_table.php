@@ -38,6 +38,14 @@ class CreateInvoiceItemsTable extends Migration
             $table->integer('quantity');
             $table->decimal('unit_price', 19, 2);
             $table->decimal('weight', 19, 2);
+            $table->integer('promo_code_id')
+                ->unsigned()
+                ->index()
+                ->nullable();
+            $table->foreign('promo_code_id')
+                ->references('id')
+                ->on('promo_codes')
+                ->onDelete('cascade');
             $table->integer('tax_id')
                 ->unsigned()
                 ->index();
