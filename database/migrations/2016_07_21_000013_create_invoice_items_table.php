@@ -37,8 +37,10 @@ class CreateInvoiceItemsTable extends Migration
             $table->string('name');
             $table->integer('quantity');
             $table->decimal('unit_price', 19, 2);
-            $table->decimal('weight', 19, 2);
-            $table->enum('weight_measurement', ['lbs', 'kg']);
+            $table->decimal('weight', 19, 2)
+                ->nullable();
+            $table->enum('weight_measurement', ['lbs', 'kg'])
+                ->nullable();
             $table->integer('promo_code_id')
                 ->unsigned()
                 ->index()
@@ -49,7 +51,8 @@ class CreateInvoiceItemsTable extends Migration
                 ->onDelete('cascade');
             $table->integer('tax_id')
                 ->unsigned()
-                ->index();
+                ->index()
+                ->nullable();
             $table->foreign('tax_id')
                 ->references('id')
                 ->on('tax_rates')
