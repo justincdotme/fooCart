@@ -20,7 +20,7 @@ class CreateShippingOptionsTable extends Migration
                 ->nullable();
             $table->decimal('rate', 19, 2)
                 ->nullable();
-            $table->string('rate_measurement')
+            $table->enum('rate_measurement', ['weight', 'price'])
                 ->nullable();
             $table->timestamp('active_on')
                 ->nullable();
