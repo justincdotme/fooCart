@@ -38,6 +38,7 @@ class CreateInvoiceItemsTable extends Migration
             $table->integer('quantity');
             $table->decimal('unit_price', 19, 2);
             $table->decimal('weight', 19, 2);
+            $table->enum('weight_measurement', ['lbs', 'kg']);
             $table->integer('promo_code_id')
                 ->unsigned()
                 ->index()
