@@ -28,6 +28,8 @@ class CreateProductShippingOptionsTable extends Migration
                 ->references('id')
                 ->on('shipping_options')
                 ->onDelete('cascade');
+            $table->decimal('shipping_cost', 19, 2)
+                ->nullable();
         });
     }
 
