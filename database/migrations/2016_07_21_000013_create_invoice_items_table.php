@@ -65,6 +65,7 @@ class CreateInvoiceItemsTable extends Migration
                 ->references('id')
                 ->on('tax_rates')
                 ->onDelete('cascade');
+            $table->timestamps();
         });
     }
 

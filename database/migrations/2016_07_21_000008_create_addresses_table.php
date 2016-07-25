@@ -32,6 +32,7 @@ class CreateAddressesTable extends Migration
                 ->on('states')
                 ->onDelete('cascade');;
             $table->integer('zip');
+            $table->timestamps();
         });
     }
 

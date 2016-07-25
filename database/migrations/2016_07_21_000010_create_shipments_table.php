@@ -41,6 +41,7 @@ class CreateShipmentsTable extends Migration
                 ->nullable();
             $table->timestamp('shipped_on')
                 ->nullable();
+            $table->timestamps();
         });
     }
 
