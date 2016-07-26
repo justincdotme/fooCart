@@ -13,6 +13,16 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
     protected $baseUrl = 'http://foocart.justinc.dev';
 
     /**
+     * Run setUp for testing
+     *
+     */
+    public function setUp()
+    {
+        parent::setUp();
+        $this->prepareForTests();
+    }
+
+    /**
      * Creates the application.
      *
      * @return \Illuminate\Foundation\Application
@@ -35,15 +45,5 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
         Config::set('database.default', 'sqlite_testing');
         Artisan::call('migrate');
         Artisan::call('db:seed');
-    }
-
-    /**
-     * Run setUp for testing
-     *
-     */
-    public function setUp()
-    {
-        parent::setUp();
-        $this->prepareForTests();
     }
 }

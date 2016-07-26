@@ -21,13 +21,36 @@ class InvoiceItem extends Model
     protected $hidden = [];
 
     /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'type_id' => 'integer',
+        'shipment_id' => 'integer',
+        'invoice_id' => 'integer',
+        'quantity' => 'integer',
+        'unit_price' => 'float',
+        'weight' => 'float',
+        'promo_code_id' => 'integer',
+        'tax_id' => 'integer'
+    ];
+
+    /**
+     * The relations to eager load on every query.
+     *
+     * @var array
+     */
+    protected $with = [];
+
+    /**
      * Define relationship to invoice.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function invoice()
     {
-        return $this->belongsTo('fooCart\Core\Invoice');
+        return $this->belongsTo('fooCart\Core\Models\Invoice');
     }
 
     /**
@@ -37,7 +60,7 @@ class InvoiceItem extends Model
      */
     public function shipment()
     {
-        return $this->belongsTo('fooCart\Core\Shipment');
+        return $this->belongsTo('fooCart\Core\Models\Shipment');
     }
 
     /**
@@ -47,7 +70,7 @@ class InvoiceItem extends Model
      */
     public function promotion()
     {
-        return $this->belongsTo('fooCart\Core\PromoCode', 'promo_code_id');
+        return $this->belongsTo('fooCart\Core\Models\PromoCode', 'promo_code_id');
     }
 
     /**
@@ -57,7 +80,7 @@ class InvoiceItem extends Model
      */
     public function taxRate()
     {
-        return $this->belongsTo('fooCart\Core\TaxRate', 'tax_id');
+        return $this->belongsTo('fooCart\Core\Models\TaxRate', 'tax_id');
     }
 
     /**
@@ -67,6 +90,48 @@ class InvoiceItem extends Model
      */
     public function type()
     {
-        return $this->belongsTo('fooCart\Core\InvoiceItemType');
+        return $this->belongsTo('fooCart\Core\Models\InvoiceItemType');
+    }
+
+    /**
+     * Get the total price for the invoice item
+     * Includes unit_price, tax and promo amount.
+     *
+     * @return float
+     */
+    public function getPriceTotal()
+    {
+        $total = ((($this->quantity * $this->unit_price) + $this->getTaxTotal()) - $this->getPromotionTotal());
+        return ($total < 0) ? 0 : $total;
+    }
+
+    /**
+     * Get the total promotion amount for the item.
+     *
+     * @return float
+     */
+    public function getPromotionTotal()
+    {
+        $promotionAmount = 0.00;
+        if (!is_null($this->promo_code_id)) {
+            $promotion = $this->promotion()->first();
+            if ('percentage' === $promotion->type) {
+                $promotionAmount = (($this->unit_price * $this->quantity) * $promotion->discount_percent);
+            } else if ('amount' === $promotion->type) {
+                $promotionAmount = ($this->quantity * $promotion->discount_amount);
+            }
+        }
+
+        return $promotionAmount;
+    }
+
+    /**
+     * Calculate the tax total for the item.
+     *
+     * @return float
+     */
+    public function getTaxTotal()
+    {
+        return ($this->taxRate()->first()->rate * ($this->unit_price * $this->quantity));
     }
 }
