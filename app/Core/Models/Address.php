@@ -1,10 +1,10 @@
 <?php
 
-namespace fooCart\Core;
+namespace fooCart\Core\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PromoCode extends Model
+class Address extends Model
 {
     /**
      * The attributes that are not mass assignable.

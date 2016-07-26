@@ -1,6 +1,6 @@
 <?php
 
-use fooCart\Core\User;
+use fooCart\Core\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 

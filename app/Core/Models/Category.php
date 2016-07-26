@@ -1,10 +1,10 @@
 <?php
 
-namespace fooCart\Core;
+namespace fooCart\Core\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Category extends Model
 {
     //
 }

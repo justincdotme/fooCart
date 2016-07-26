@@ -1,10 +1,10 @@
 <?php
 
-namespace fooCart\Core;
+namespace fooCart\Core\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Bankcard extends Model
+class Product extends Model
 {
     //
 }

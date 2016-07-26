@@ -1,6 +1,6 @@
 <?php
 
-use fooCart\Core\Bankcard;
+use fooCart\Core\Models\Bankcard;
 use Illuminate\Database\Seeder;
 
 class BankcardTableSeeder extends Seeder

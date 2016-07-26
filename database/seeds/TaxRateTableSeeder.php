@@ -1,6 +1,6 @@
 <?php
 
-use fooCart\Core\TaxRate;
+use fooCart\Core\Models\TaxRate;
 use Illuminate\Database\Seeder;
 
 class TaxRateTableSeeder extends Seeder

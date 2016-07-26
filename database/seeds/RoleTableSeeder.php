@@ -1,6 +1,6 @@
 <?php
 
-use fooCart\Core\Role;
+use fooCart\Core\Models\Role;
 use Illuminate\Database\Seeder;
 
 class RoleTableSeeder extends Seeder

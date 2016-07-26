@@ -1,6 +1,6 @@
 <?php
 
-use fooCart\Core\PromoCode;
+use fooCart\Core\Models\PromoCode;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 

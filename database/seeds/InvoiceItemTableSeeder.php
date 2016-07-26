@@ -1,6 +1,6 @@
 <?php
 
-use fooCart\Core\InvoiceItem;
+use fooCart\Core\Models\InvoiceItem;
 use Illuminate\Database\Seeder;
 
 class InvoiceItemTableSeeder extends Seeder

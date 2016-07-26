@@ -1,6 +1,6 @@
 <?php
 
-use fooCart\Core\State;
+use fooCart\Core\Models\State;
 use Illuminate\Database\Seeder;
 
 class StateTableSeeder extends Seeder

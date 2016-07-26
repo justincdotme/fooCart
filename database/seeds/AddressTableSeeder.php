@@ -1,6 +1,6 @@
 <?php
 
-use fooCart\Core\Address;
+use fooCart\Core\Models\Address;
 use Illuminate\Database\Seeder;
 
 class AddressTableSeeder extends Seeder

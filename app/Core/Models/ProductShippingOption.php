@@ -1,10 +1,10 @@
 <?php
 
-namespace fooCart\Core;
+namespace fooCart\Core\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class ProductShippingOption extends Model
 {
     /**
      * The attributes that are not mass assignable.
