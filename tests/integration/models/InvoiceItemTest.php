@@ -21,9 +21,18 @@ class InvoiceItemTest extends TestCase
      * Test that the getPromotionTotal method is accurate.
      *
      */
-    public function testGetPromotionTotalIsAccurate()
+    public function testGetAmountPromotionTotalIsAccurate()
     {
         $this->assertEquals(20, InvoiceItem::find(1)->getPromotionTotal());
+    }
+
+    /**
+     * Test that the getPromotionTotal method is accurate.
+     *
+     */
+    public function testGetPercentPromotionTotalIsAccurate()
+    {
+        $this->assertEquals(61.14, InvoiceItem::find(2)->getPromotionTotal());
     }
 
     /**
