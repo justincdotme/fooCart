@@ -25,9 +25,14 @@ class CreateAddressesTable extends Migration
             $table->string('street_2')
                 ->nullable();
             $table->string('city');
-            $table->string('state');
+            $table->integer('state_id')
+                ->unsigned();
+            $table->foreign('state_id')
+                ->references('id')
+                ->on('states')
+                ->onDelete('cascade');;
             $table->integer('zip');
-            $table->enum('type', ['shipping', 'billing']);
+            $table->timestamps();
         });
     }
 

@@ -28,6 +28,7 @@ class CreatePhonesTable extends Migration
                 ->on('phone_types')
                 ->onDelete('cascade');
             $table->bigInteger('phone_number');
+            $table->timestamps();
         });
     }
 

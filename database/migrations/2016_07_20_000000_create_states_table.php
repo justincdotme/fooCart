@@ -4,7 +4,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\Schema;
 
-class CreateShippingOptionsTable extends Migration
+class CreateStatesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,10 @@ class CreateShippingOptionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('shipping_options', function(Blueprint $table) {
+        Schema::create('states', function(Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('delivery_time')
-                ->nullable();
-            $table->timestamp('active_on')
-                ->nullable();
-            $table->timestamp('expires_on')
-                ->nullable();
+            $table->char('abbreviation', 2);
             $table->timestamps();
         });
     }
@@ -33,6 +28,6 @@ class CreateShippingOptionsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('shipping_options');
+        Schema::drop('states');
     }
 }

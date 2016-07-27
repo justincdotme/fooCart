@@ -30,7 +30,7 @@ class CreateShipmentsTable extends Migration
                 ->on('shipping_options')
                 ->onDelete('cascade');
             $table->integer('shipping_address_id')
-            ->unsigned()
+                ->unsigned()
                 ->index();
             $table->foreign('shipping_address_id')
                 ->references('id')
@@ -41,6 +41,7 @@ class CreateShipmentsTable extends Migration
                 ->nullable();
             $table->timestamp('shipped_on')
                 ->nullable();
+            $table->timestamps();
         });
     }
 

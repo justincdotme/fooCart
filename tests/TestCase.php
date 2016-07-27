@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Config;
+
 abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
 {
     /**
@@ -7,7 +10,17 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
      *
      * @var string
      */
-    protected $baseUrl = 'http://localhost';
+    protected $baseUrl = 'http://foocart.justinc.dev';
+
+    /**
+     * Run setUp for testing
+     *
+     */
+    public function setUp()
+    {
+        parent::setUp();
+        $this->prepareForTests();
+    }
 
     /**
      * Creates the application.
@@ -21,5 +34,16 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
         $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 
         return $app;
+    }
+
+    /**
+     * Initialize test database
+     *
+     */
+    public function prepareForTests()
+    {
+        Config::set('database.default', 'sqlite_testing');
+        Artisan::call('migrate');
+        Artisan::call('db:seed');
     }
 }
