@@ -116,7 +116,7 @@ class InvoiceItem extends Model
         if (!is_null($this->promo_code_id)) {
             $promotion = $this->promotion()->first();
             if ('percentage' === $promotion->type) {
-                $promotionAmount = (($this->unit_price * $this->quantity) * $promotion->discount_percent);
+                $promotionAmount = ((($this->unit_price * $this->quantity) + $this->getTaxTotal()) * $promotion->discount_percent);
             } else if ('amount' === $promotion->type) {
                 $promotionAmount = ($this->quantity * $promotion->discount_amount);
             }
