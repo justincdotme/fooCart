@@ -18,7 +18,7 @@ class InvoiceItemTest extends TestCase
     }
 
     /**
-     * Test that the getPromotionTotal method is accurate.
+     * Test that the getPromotionTotal method is accurate for amount.
      *
      */
     public function testGetAmountPromotionTotalIsAccurate()
@@ -27,7 +27,7 @@ class InvoiceItemTest extends TestCase
     }
 
     /**
-     * Test that the getPromotionTotal method is accurate.
+     * Test that the getPromotionTotal method is accurate for percent.
      *
      */
     public function testGetPercentPromotionTotalIsAccurate()

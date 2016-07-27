@@ -132,6 +132,10 @@ class InvoiceItem extends Model
      */
     public function getTaxTotal()
     {
-        return ($this->taxRate()->first()->rate * ($this->unit_price * $this->quantity));
+        $totalTax = 0;
+        if (!is_null($this->tax_id)) {
+            $totalTax = ($this->taxRate()->first()->rate * ($this->unit_price * $this->quantity));
+        }
+        return $totalTax;
     }
 }
