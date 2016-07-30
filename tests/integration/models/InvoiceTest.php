@@ -1,10 +1,8 @@
 <?php
-
 use fooCart\Core\Models\Invoice;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-
 class InvoiceTest extends TestCase
 {
     /**
@@ -16,7 +14,6 @@ class InvoiceTest extends TestCase
     {
         $this->assertEquals(1953.0, Invoice::find(1)->getPriceTotal());
     }
-
     /**
      * Test that the getPromotionTotal is correct for amount based promotion code.
      */
@@ -24,7 +21,6 @@ class InvoiceTest extends TestCase
     {
         $this->assertEquals(5, Invoice::find(1)->getInvoicePromotionTotal());
     }
-
     /**
      * Test that the getPromotionTotal is correct for percent based promotion code.
      */
@@ -32,7 +28,6 @@ class InvoiceTest extends TestCase
     {
         $this->assertEquals(180.015, Invoice::find(3)->getInvoicePromotionTotal());
     }
-
     /**
      * Test that the getPriceSubtotal is correct
      */
@@ -40,7 +35,6 @@ class InvoiceTest extends TestCase
     {
         $this->assertEquals(1800.15, Invoice::find(3)->getPriceSubtotal());
     }
-
     /**
      * Test that the getTaxTotal method is accurate.
      */
@@ -48,7 +42,6 @@ class InvoiceTest extends TestCase
     {
         $this->assertEquals(38.0, Invoice::find(1)->getTaxTotal());
     }
-
     /**
      * Test that the getInvoiceItemPromotion total is accurate.
      *

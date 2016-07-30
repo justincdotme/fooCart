@@ -131,6 +131,7 @@ class InvoiceItem extends Model
                 $promotionAmount = ($this->quantity * $promotion->discount_amount);
             }
         }
+
         return $promotionAmount;
     }
 
@@ -143,7 +144,7 @@ class InvoiceItem extends Model
     {
         $totalTax = 0;
         if (!is_null($this->tax_id)) {
-            $totalTax = ($this->taxRate()->first()->rate * (($this->unit_price * $this->quantity) - $this->getPromotionTotal()));
+            $totalTax = ($this->taxRate()->first()->rate * ($this->unit_price * $this->quantity));
         }
         return $totalTax;
     }

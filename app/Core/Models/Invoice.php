@@ -1,9 +1,6 @@
 <?php
-
 namespace fooCart\Core\Models;
-
 use Illuminate\Database\Eloquent\Model;
-
 class Invoice extends Model
 {
     /**
@@ -12,21 +9,18 @@ class Invoice extends Model
      * @var array
      */
     protected $guarded = [];
-
     /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
      */
     protected $hidden = [];
-
     /**
      * The attributes that should be cast to native types.
      *
      * @var array
      */
     protected $casts = [];
-
     /**
      * The relations to eager load on every query.
      *
@@ -35,7 +29,6 @@ class Invoice extends Model
     protected $with = [
         'invoiceItems'
     ];
-
     /**
      * Define the relationship to invoice items.
      *
@@ -45,7 +38,6 @@ class Invoice extends Model
     {
         return $this->hasMany('fooCart\Core\Models\InvoiceItem');
     }
-
     /**
      * Define the relationship to shipments.
      *
@@ -55,7 +47,6 @@ class Invoice extends Model
     {
         return $this->hasMany('fooCart\Core\Models\Shipment');
     }
-
     /**
      * Define the relationship to user.
      *
@@ -65,7 +56,6 @@ class Invoice extends Model
     {
         return $this->belongsTo('fooCart\Core\Models\User');
     }
-
     /**
      * Define the relationship to the promotion code.
      *
@@ -75,7 +65,6 @@ class Invoice extends Model
     {
         return $this->belongsTo('fooCart\Core\Models\PromoCode', 'promo_code_id');
     }
-
     /**
      * Define the relationship to the bankcard.
      *
@@ -85,7 +74,6 @@ class Invoice extends Model
     {
         return $this->belongsTo('fooCart\Core\Models\Bankcard', 'promo_code_id');
     }
-
     /**
      * Get the total cost of the invoice.
      *
@@ -95,7 +83,6 @@ class Invoice extends Model
     {
         return ($this->getPriceSubtotal() - $this->getInvoicePromotionTotal());
     }
-
     /**
      * Get the subtotal of all invoice items.
      *
@@ -111,7 +98,6 @@ class Invoice extends Model
         }, 0);
         return ($total < 0) ? 0 : $total;
     }
-
     /**
      * Get the total promotion amount for the invoice.
      *
@@ -128,10 +114,8 @@ class Invoice extends Model
                 $promotionAmount = $promotion->discount_amount;
             }
         }
-
         return $promotionAmount;
     }
-
     /**
      * Get the total amount for the promotions.
      * This only tallies invoice item promotions.
@@ -147,7 +131,6 @@ class Invoice extends Model
         }, 0);
         return $total;
     }
-
     /**
      * Get the combined promotion amount.
      * This adds the invoice and invoice items.
@@ -158,7 +141,6 @@ class Invoice extends Model
     {
         return ($this->getInvoicePromotionTotal() + $this->getInvoiceItemPromotionTotal());
     }
-
     /**
      * Calculate the tax total for the invoice.
      *
