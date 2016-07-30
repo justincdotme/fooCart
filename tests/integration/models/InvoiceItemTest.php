@@ -41,7 +41,7 @@ class InvoiceItemTest extends TestCase
      */
     public function testGetPriceTotalIsAccurate()
     {
-        $this->assertEquals(489.5, InvoiceItem::find(1)->getPriceTotal());
+        $this->assertEquals(549.6, InvoiceItem::find(1)->getPriceTotal());
     }
 
     /**
