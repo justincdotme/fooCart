@@ -14,7 +14,7 @@ class InvoiceTest extends TestCase
      */
     public function testGetPriceTotalIsAccurate()
     {
-        $this->assertEquals(1951.86, Invoice::find(1)->getPriceTotal());
+        $this->assertEquals(1953.0, Invoice::find(1)->getPriceTotal());
     }
 
     /**
@@ -30,7 +30,7 @@ class InvoiceTest extends TestCase
      */
     public function testGetPercentPromotionTotalIsAccurate()
     {
-        $this->assertEquals(179.8155, Invoice::find(3)->getPromotionTotal());
+        $this->assertEquals(180.015, Invoice::find(3)->getPromotionTotal());
     }
 
     /**
@@ -38,6 +38,6 @@ class InvoiceTest extends TestCase
      */
     public function testGetPriceSubtotalIsAccurate()
     {
-        $this->assertEquals(1798.155, Invoice::find(3)->getPriceSubtotal());
+        $this->assertEquals(1800.15, Invoice::find(3)->getPriceSubtotal());
     }
 }
