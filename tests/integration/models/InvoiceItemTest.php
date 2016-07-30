@@ -14,7 +14,7 @@ class InvoiceItemTest extends TestCase
      */
     public function testInvoiceItemTaxTotalIsAccurate()
     {
-        $this->assertEquals(9.5, InvoiceItem::find(1)->getTaxTotal());
+        $this->assertEquals(9.12, InvoiceItem::find(1)->getTaxTotal());
     }
 
     /**
@@ -32,7 +32,7 @@ class InvoiceItemTest extends TestCase
      */
     public function testGetPercentPromotionTotalIsAccurate()
     {
-        $this->assertEquals(61.14, InvoiceItem::find(2)->getPromotionTotal());
+        $this->assertEquals(60.00, InvoiceItem::find(2)->getPromotionTotal());
     }
 
     /**
@@ -41,6 +41,6 @@ class InvoiceItemTest extends TestCase
      */
     public function testGetPriceTotalIsAccurate()
     {
-        $this->assertEquals(489.5, InvoiceItem::find(1)->getPriceTotal());
+        $this->assertEquals(489.12, InvoiceItem::find(1)->getPriceTotal());
     }
 }

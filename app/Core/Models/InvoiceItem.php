@@ -101,7 +101,7 @@ class InvoiceItem extends Model
      */
     public function getPriceTotal()
     {
-        $total = ((($this->quantity * $this->unit_price) + $this->getTaxTotal()) - $this->getPromotionTotal());
+        $total = ((($this->quantity * $this->unit_price) - $this->getPromotionTotal()) + $this->getTaxTotal());
         return ($total < 0) ? 0 : $total;
     }
 
@@ -116,7 +116,7 @@ class InvoiceItem extends Model
         if (!is_null($this->promo_code_id)) {
             $promotion = $this->promotion()->first();
             if ('percentage' === $promotion->type) {
-                $promotionAmount = ((($this->unit_price * $this->quantity) + $this->getTaxTotal()) * $promotion->discount_percent);
+                $promotionAmount = ((($this->unit_price * $this->quantity) * $promotion->discount_percent));
             } else if ('amount' === $promotion->type) {
                 $promotionAmount = ($this->quantity * $promotion->discount_amount);
             }
@@ -134,7 +134,7 @@ class InvoiceItem extends Model
     {
         $totalTax = 0;
         if (!is_null($this->tax_id)) {
-            $totalTax = ($this->taxRate()->first()->rate * ($this->unit_price * $this->quantity));
+            $totalTax = ($this->taxRate()->first()->rate * (($this->unit_price * $this->quantity) - $this->getPromotionTotal()));
         }
         return $totalTax;
     }
