@@ -46,7 +46,7 @@ class InvoiceItemTableSeeder extends Seeder
             ],
             //Shipment 2
             [ //tax, quantity > 1, no promo
-                'sku' => 'FC-HDTV00000002',
+                'sku' => 'FC-HDTV00000003',
                 'manufacturer' => 'Acme',
                 'type_id' => 1,
                 'shipment_id' => 2,
@@ -78,7 +78,7 @@ class InvoiceItemTableSeeder extends Seeder
             ],
             //Shipment 3
             [ //tax, quantity = 1, percentage promo
-                'sku' => 'FC-PC0000000002',
+                'sku' => 'FC-PC0000000004',
                 'manufacturer' => 'Virtucon',
                 'type_id' => 1,
                 'shipment_id' => 3,
@@ -95,7 +95,7 @@ class InvoiceItemTableSeeder extends Seeder
             //Invoice 3
             //Shipment 4
             [ //tax, quantity = 1, no promo
-                'sku' => 'FC-PC0000000002',
+                'sku' => 'FC-PC0000000005',
                 'manufacturer' => 'Virtucon',
                 'type_id' => 1,
                 'shipment_id' => 4,
@@ -110,7 +110,7 @@ class InvoiceItemTableSeeder extends Seeder
             ],
             //Shipment 4
             [ //tax, quantity = 1, percentage promo
-                'sku' => 'FC-PC0000000002',
+                'sku' => 'FC-PC0000000006',
                 'manufacturer' => 'Virtucon',
                 'type_id' => 1,
                 'shipment_id' => 4,
@@ -125,7 +125,7 @@ class InvoiceItemTableSeeder extends Seeder
             ],
             //Shipment 5
             [ //tax, quantity > 1, amount promo
-                'sku' => 'FC-HDTV00000001',
+                'sku' => 'FC-HDTV00000007',
                 'manufacturer' => 'Acme',
                 'type_id' => 1,
                 'shipment_id' => 5,
@@ -140,7 +140,7 @@ class InvoiceItemTableSeeder extends Seeder
             ],
             //Shipment 5
             [ //tax, quantity > 1, percentage promo
-                'sku' => 'FC-HDTV00000002',
+                'sku' => 'FC-HDTV00000008',
                 'manufacturer' => 'Acme',
                 'type_id' => 1,
                 'shipment_id' => 5,

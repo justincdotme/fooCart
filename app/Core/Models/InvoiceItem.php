@@ -106,6 +106,16 @@ class InvoiceItem extends Model
     }
 
     /**
+     * Get the subtotal of the invoice item.
+     *
+     * @return mixed
+     */
+    public function getPriceSubTotal()
+    {
+        return ($this->quantity * $this->unit_price);
+    }
+
+    /**
      * Get the total promotion amount for the item.
      *
      * @return float
@@ -116,12 +126,11 @@ class InvoiceItem extends Model
         if (!is_null($this->promo_code_id)) {
             $promotion = $this->promotion()->first();
             if ('percentage' === $promotion->type) {
-                $promotionAmount = ((($this->unit_price * $this->quantity) * $promotion->discount_percent));
+                $promotionAmount = ($this->unit_price * $this->quantity * $promotion->discount_percent);
             } else if ('amount' === $promotion->type) {
                 $promotionAmount = ($this->quantity * $promotion->discount_amount);
             }
         }
-
         return $promotionAmount;
     }
 
