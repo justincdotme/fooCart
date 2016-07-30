@@ -65,6 +65,16 @@ class CreateInvoiceItemsTable extends Migration
                 ->references('id')
                 ->on('tax_rates')
                 ->onDelete('cascade');
+            $table->decimal('shipping_total', 19, 2)
+                ->nullable();
+            $table->integer('shipping_option_id')
+                ->unsigned()
+                ->index()
+                ->nullable();
+            $table->foreign('shipping_option_id')
+                ->references('id')
+                ->on('shipping_options')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

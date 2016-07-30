@@ -101,7 +101,12 @@ class InvoiceItem extends Model
      */
     public function getPriceTotal()
     {
-        $total = ((($this->quantity * $this->unit_price) - $this->getPromotionTotal()) + $this->getTaxTotal());
+        $total = (
+            (
+                ($this->quantity * $this->unit_price)
+                - $this->getPromotionTotal()
+            )   + $this->shipping_total + $this->getTaxTotal()
+        );
         return ($total < 0) ? 0 : $total;
     }
 

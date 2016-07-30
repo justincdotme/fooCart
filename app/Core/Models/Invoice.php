@@ -81,7 +81,12 @@ class Invoice extends Model
      */
     public function getPriceTotal()
     {
-        return ($this->getPriceSubtotal() - $this->getInvoicePromotionTotal());
+        return (
+            (
+                $this->getPriceSubtotal() +
+                $this->getShippingTotal()
+            )   - $this->getInvoicePromotionTotal()
+        );
     }
     /**
      * Get the subtotal of all invoice items.
@@ -90,10 +95,25 @@ class Invoice extends Model
      */
     public function getPriceSubtotal()
     {
-        //array_reduce the $invoiceItems->getPriceTotal() for each item
         $total = array_reduce($this->invoiceItems->all(), function($carry, $item)
         {
             $carry += $item->getPriceTotal();
+            return $carry;
+        }, 0);
+        $total -= $this->getShippingTotal();
+        return ($total < 0) ? 0 : $total;
+    }
+
+    /**
+     * Get the total shipping cost for the invoice.
+     *
+     * @return int|mixed
+     */
+    public function getShippingTotal()
+    {
+        $total = array_reduce($this->invoiceItems->all(), function($carry, $item)
+        {
+            $carry += $item->shipping_total;
             return $carry;
         }, 0);
         return ($total < 0) ? 0 : $total;

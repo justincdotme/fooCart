@@ -33,7 +33,7 @@ class ShippingOptionTableSeeder extends Seeder
                 'active_on' => Carbon::today()->toDayDateTimeString(),
                 'expires_on' => null
             ],
-            //Demo USPS rates
+            //Demo UPS rates
             [
                 'name' => 'UPS UPS Next Day Air Saver',
                 'delivery_time' => 'Overnight',
