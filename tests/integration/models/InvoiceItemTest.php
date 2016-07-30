@@ -32,7 +32,7 @@ class InvoiceItemTest extends TestCase
      */
     public function testGetPercentPromotionTotalIsAccurate()
     {
-        $this->assertEquals(61.14, InvoiceItem::find(2)->getPromotionTotal());
+        $this->assertEquals(60.0, InvoiceItem::find(2)->getPromotionTotal());
     }
 
     /**
