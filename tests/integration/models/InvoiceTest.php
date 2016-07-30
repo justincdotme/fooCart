@@ -20,17 +20,17 @@ class InvoiceTest extends TestCase
     /**
      * Test that the getPromotionTotal is correct for amount based promotion code.
      */
-    public function testGetAmountPromotionTotalIsAccurate()
+    public function testGetAmountInvoicePromotionTotalIsAccurate()
     {
-        $this->assertEquals(5, Invoice::find(1)->getPromotionTotal());
+        $this->assertEquals(5, Invoice::find(1)->getInvoicePromotionTotal());
     }
 
     /**
      * Test that the getPromotionTotal is correct for percent based promotion code.
      */
-    public function testGetPercentPromotionTotalIsAccurate()
+    public function testGetPercentInvoicePromotionTotalIsAccurate()
     {
-        $this->assertEquals(180.015, Invoice::find(3)->getPromotionTotal());
+        $this->assertEquals(180.015, Invoice::find(3)->getInvoicePromotionTotal());
     }
 
     /**
@@ -39,5 +39,13 @@ class InvoiceTest extends TestCase
     public function testGetPriceSubtotalIsAccurate()
     {
         $this->assertEquals(1800.15, Invoice::find(3)->getPriceSubtotal());
+    }
+
+    /**
+     * Test that the getTaxTotal method is accurate.
+     */
+    public function testGetTaxTotalIsAccurate()
+    {
+        $this->assertEquals(38.0, Invoice::find(1)->getTaxTotal());
     }
 }
