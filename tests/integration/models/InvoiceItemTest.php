@@ -43,4 +43,12 @@ class InvoiceItemTest extends TestCase
     {
         $this->assertEquals(489.5, InvoiceItem::find(1)->getPriceTotal());
     }
+
+    /**
+     * Test that the getPriceSubTotal method is accurate
+     */
+    public function testGetPriceSubTotalIsAccurate()
+    {
+        $this->assertEquals(500.0, InvoiceItem::find(1)->getPriceSubTotal());
+    }
 }

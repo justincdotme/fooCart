@@ -106,6 +106,16 @@ class InvoiceItem extends Model
     }
 
     /**
+     * Get the subtotal of the invoice item.
+     *
+     * @return mixed
+     */
+    public function getPriceSubTotal()
+    {
+        return ($this->quantity * $this->unit_price);
+    }
+
+    /**
      * Get the total promotion amount for the item.
      *
      * @return float
