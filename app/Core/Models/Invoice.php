@@ -93,7 +93,7 @@ class Invoice extends Model
      */
     public function getPriceTotal()
     {
-        return $this->getPriceSubtotal() - $this->getPromotionTotal();
+        return ($this->getPriceSubtotal() - $this->getInvoicePromotionTotal());
     }
 
     /**
@@ -117,7 +117,7 @@ class Invoice extends Model
      *
      * @return float
      */
-    public function getPromotionTotal()
+    public function getInvoicePromotionTotal()
     {
         $promotionAmount = 0.00;
         if (!is_null($this->promo_code_id)) {
@@ -133,15 +133,40 @@ class Invoice extends Model
     }
 
     /**
+     * Get the total amount for the promotions.
+     * This only tallies invoice item promotions.
+     *
+     * @return float
+     */
+    public function getInvoiceItemPromotionTotal()
+    {
+        $total = array_reduce($this->invoiceItems->all(), function($carry, $item)
+        {
+            $carry += $item->getPromotionTotal();
+            return $carry;
+        }, 0);
+        return $total;
+    }
+
+    /**
+     * Get the combined promotion amount.
+     * This adds the invoice and invoice items.
+     *
+     * @return float
+     */
+    public function getCombinedPromotionTotal()
+    {
+        return ($this->getInvoicePromotionTotal() + $this->getInvoiceItemPromotionTotal());
+    }
+
+    /**
      * Calculate the tax total for the invoice.
      *
      * @return float
      */
     public function getTaxTotal()
     {
-        //array_reduce All $this->invoiceItem()->all()->getTaxTotal()
-        //To calculate the tax total for the invoice
-        $total = array_reduce($this->invoiceItems()->all(), function($carry, $item)
+        $total = array_reduce($this->invoiceItems->all(), function($carry, $item)
         {
             $carry += $item->getTaxTotal();
             return $carry;

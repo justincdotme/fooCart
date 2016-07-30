@@ -48,4 +48,13 @@ class InvoiceTest extends TestCase
     {
         $this->assertEquals(38.0, Invoice::find(1)->getTaxTotal());
     }
+
+    /**
+     * Test that the getInvoiceItemPromotion total is accurate.
+     *
+     */
+    public function getInvoiceItemPromotionTotalIsAccurate()
+    {
+        $this->assertEquals(80, Invoice::find(1)->getInvoicePromotionTotal());
+    }
 }
