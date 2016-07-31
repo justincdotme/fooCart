@@ -94,6 +94,16 @@ class InvoiceItem extends Model
     }
 
     /**
+     * Define the relationship to the product.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function product()
+    {
+        return $this->belongsTo('fooCart\Core\Models\Product');
+    }
+
+    /**
      * Get the total price for the invoice item
      * Includes unit_price, tax and promo amount.
      *
@@ -105,7 +115,8 @@ class InvoiceItem extends Model
             (
                 ($this->quantity * $this->unit_price)
                 - $this->getPromotionTotal()
-            )   + $this->shipping_total + $this->getTaxTotal()
+            )   + $this->shipping_total
+                + $this->getTaxTotal()
         );
         return ($total < 0) ? 0 : $total;
     }
