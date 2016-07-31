@@ -17,6 +17,7 @@ class InvoiceItemTableSeeder extends Seeder
             //Shipment 1
             [ //tax, quantity > 1, amount promo
                 'type_id' => 1,
+                'product_id' => rand(1, 4),
                 'shipment_id' => 1,
                 'invoice_id' => 1,
                 'quantity' => 2,
@@ -29,6 +30,7 @@ class InvoiceItemTableSeeder extends Seeder
             //Shipment 1
             [ //tax, quantity > 1, percentage promo
                 'type_id' => 1,
+                'product_id' => rand(1, 4),
                 'shipment_id' => 1,
                 'invoice_id' => 1,
                 'quantity' => 2,
@@ -41,6 +43,7 @@ class InvoiceItemTableSeeder extends Seeder
             //Shipment 2
             [ //tax, quantity > 1, no promo
                 'type_id' => 1,
+                'product_id' => rand(1, 4),
                 'shipment_id' => 2,
                 'invoice_id' => 1,
                 'quantity' => 2,
@@ -55,6 +58,7 @@ class InvoiceItemTableSeeder extends Seeder
             //Shipment 3
             [ //tax, quantity = 1, amount promo
                 'type_id' => 1,
+                'product_id' => rand(1, 4),
                 'shipment_id' => 3,
                 'invoice_id' => 2,
                 'quantity' => 1,
@@ -67,6 +71,7 @@ class InvoiceItemTableSeeder extends Seeder
             //Shipment 3
             [ //tax, quantity = 1, percentage promo
                 'type_id' => 1,
+                'product_id' => rand(1, 4),
                 'shipment_id' => 3,
                 'invoice_id' => 2,
                 'quantity' => 1,
@@ -81,6 +86,7 @@ class InvoiceItemTableSeeder extends Seeder
             //Shipment 4
             [ //tax, quantity = 1, no promo
                 'type_id' => 1,
+                'product_id' => rand(1, 4),
                 'shipment_id' => 4,
                 'invoice_id' => 3,
                 'quantity' => 1,
@@ -93,6 +99,7 @@ class InvoiceItemTableSeeder extends Seeder
             //Shipment 4
             [ //tax, quantity = 1, percentage promo
                 'type_id' => 1,
+                'product_id' => rand(1, 4),
                 'shipment_id' => 4,
                 'invoice_id' => 3,
                 'quantity' => 1,
@@ -105,6 +112,7 @@ class InvoiceItemTableSeeder extends Seeder
             //Shipment 5
             [ //tax, quantity > 1, amount promo
                 'type_id' => 1,
+                'product_id' => rand(1, 4),
                 'shipment_id' => 5,
                 'invoice_id' => 3,
                 'quantity' => 2,
@@ -117,6 +125,7 @@ class InvoiceItemTableSeeder extends Seeder
             //Shipment 5
             [ //tax, quantity > 1, percentage promo
                 'type_id' => 1,
+                'product_id' => rand(1, 4),
                 'shipment_id' => 5,
                 'invoice_id' => 3,
                 'quantity' => 2,
