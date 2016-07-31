@@ -3,7 +3,7 @@
 use fooCart\Core\Models\SlideshowImage;
 use Illuminate\Database\Seeder;
 
-class SlidesTableSeeder extends Seeder
+class SlideshowImageTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
