@@ -15,10 +15,14 @@ class CreateInvoiceItemsTable extends Migration
     {
         Schema::create('invoice_items', function(Blueprint $table) {
             $table->increments('id');
-            $table->string('sku')
+            $table->integer('product_id')
+                ->unsigned()
+                ->index()
                 ->nullable();
-            $table->string('manufacturer')
-                ->nullable();
+            $table->foreign('product_id')
+                ->references('id')
+                ->on('products')
+                ->onDelete('cascade');
             $table->integer('type_id') //line item, product, etc
                 ->unsigned()
                 ->index();
@@ -42,13 +46,8 @@ class CreateInvoiceItemsTable extends Migration
                 ->references('id')
                 ->on('invoices')
                 ->onDelete('cascade');
-            $table->string('name');
             $table->integer('quantity');
             $table->decimal('unit_price', 19, 2);
-            $table->decimal('weight', 19, 2)
-                ->nullable();
-            $table->enum('weight_measurement', ['lbs', 'kg'])
-                ->nullable();
             $table->integer('promo_code_id')
                 ->unsigned()
                 ->index()

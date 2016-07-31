@@ -16,15 +16,19 @@ class CreateProductsTable extends Migration
         Schema::create('products', function(Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->text('short_desc');
-            $table->text('long_desc');
+            $table->text('short_desc')
+                ->nullable();
+            $table->text('long_desc')
+                ->nullable();
             $table->string('sku')
                 ->unique();
-            $table->decimal('unit_price', 19, 2)
-                ->nullable();
+            $table->decimal('unit_price', 19, 2);
             $table->decimal('sale_price', 19, 2)
                 ->nullable();
-            $table->decimal('weight', 19, 2);
+            $table->decimal('weight', 19, 2)
+                ->nullable();
+            $table->enum('weight_measurement', ['lbs', 'kg'])
+                ->nullable();
             $table->integer('manufacturer_id')
                 ->unsigned()
                 ->index();
@@ -32,15 +36,7 @@ class CreateProductsTable extends Migration
                 ->references('id')
                 ->on('manufacturers')
                 ->onDelete('cascade');
-            $table->integer('category_id')
-                ->unsigned()
-                ->index();
-            $table->foreign('category_id')
-                ->references('id')
-                ->on('categories')
-                ->onDelete('cascade');
-            $table->integer('units_sold')
-                ->nullable();
+            $table->integer('units_sold');
             $table->integer('units_available');
             $table->timestamp('active_on')
                 ->nullable();
