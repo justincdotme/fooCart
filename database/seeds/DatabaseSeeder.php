@@ -28,8 +28,14 @@ class DatabaseSeeder extends Seeder
         $this->call(ProductTableSeeder::class);
         $this->call(ProductCategoryTableSeeder::class);
         $this->call(ProductShippingOptionTableSeeder::class);
+        $this->call(ProductImageTableSeeder::class);
         $this->call(InvoiceItemTypeTableSeeder::class);
+        $this->call(PhoneTypeTableSeeder::class);
+        $this->call(PhoneTableSeeder::class);
         $this->call(TaxRateTableSeeder::class);
         $this->call(InvoiceItemTableSeeder::class);
+        $this->call(SlideshowTableSeeder::class);
+        $this->call(SlideshowImageTableSeeder::class);
+        Model::reguard();
     }
 }
