@@ -31,6 +31,12 @@ class Product extends Model
         return $this->belongsTo('fooCart\Core\Models\Manufacturer');
     }
 
+    public function shippingOptions()
+    {
+        return $this->belongsToMany('fooCart\Core\Models\ShippingOption', 'product_shipping_options')
+            ->withPivot('shipping_cost', 'created_at', 'updated_at');
+    }
+
     /**
      * Return active products
      *
