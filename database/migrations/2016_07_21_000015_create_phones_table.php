@@ -3,6 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\Schema;
+use Faker\Factory as Faker;
 
 class CreatePhonesTable extends Migration
 {
@@ -27,7 +28,9 @@ class CreatePhonesTable extends Migration
                 ->references('id')
                 ->on('phone_types')
                 ->onDelete('cascade');
-            $table->bigInteger('phone_number');
+            $table->string('phone_number', 50);
+            $table->integer('extension')
+                ->nullable();
             $table->timestamps();
         });
     }
