@@ -20,9 +20,9 @@
  
  **View Demo**
  
- [http://foocart.justinc.me](http://foocart.justinc.me)
+ [https://foocart.justinc.me](https://foocart.justinc.me)
 
- [http://foocart.justinc.me/admin](http://foocart.justinc.me/admin)
+ [https://foocart.justinc.me/admin](https://foocart.justinc.me/admin)
  
  **Username:** demo.user@justinc.me
  
