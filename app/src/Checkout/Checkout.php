@@ -43,7 +43,7 @@ use Stripe\Error\Card;
  * @author Justin Christenson <info@justinc.me>
  * @version 1.0.0
  * @license http://opensource.org/licenses/mit-license.php
- * @link http://foocart.demos.justinc.me
+ * @link http://foocart.justinc.me
  *
  */
 
