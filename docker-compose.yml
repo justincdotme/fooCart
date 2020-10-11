@@ -49,10 +49,10 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_DATABASE: physistrong
+      MYSQL_DATABASE: foocart
       MYSQL_ROOT_PASSWORD: rtUserPass
-      MYSQL_USER: physistrong
-      MYSQL_PASSWORD: psUsrPass
+      MYSQL_USER: foocart
+      MYSQL_PASSWORD: fcUsrPass
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     volumes:
