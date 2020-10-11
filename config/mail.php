@@ -107,4 +107,9 @@ return [
         ],
     ],
 
+    'accounts' => [
+        'admin' => [
+            'to' => env('DEFAULT_ADMIN_EMAIL'),
+        ]
+    ]
 ];

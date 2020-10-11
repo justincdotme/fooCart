@@ -1,0 +1,1 @@
+<h1>Thank You, {{ $data['name'] }}</h1>
