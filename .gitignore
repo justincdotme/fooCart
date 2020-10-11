@@ -3,3 +3,7 @@
 /.idea
 .env
 public/mix-manifest.json
+public/css
+public/js
+.env.testing
+.phpunit.result.cache
