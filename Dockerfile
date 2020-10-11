@@ -30,7 +30,6 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 RUN docker-php-ext-install pdo_mysql mbstring zip exif pcntl
 RUN docker-php-ext-configure gd --with-gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/
 RUN docker-php-ext-install gd
-#RUN pecl install pecl install xdebug-2.6.0RC2 && docker-php-ext-enable xdebug
 RUN pecl install xdebug; \
     	    docker-php-ext-enable xdebug; \
     	    echo "error_reporting = E_ALL" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini; \
