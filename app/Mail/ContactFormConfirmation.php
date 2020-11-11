@@ -17,6 +17,10 @@ class ContactFormConfirmation extends Mailable implements ShouldQueue
      * Create a new message instance.
      *
      * @param $formData
+    /**
+     * Create a new message instance.
+     *
+     * @return void
      */
     public function __construct($formData)
     {
