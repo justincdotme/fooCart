@@ -13,9 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('contact', [
+    \App\Http\Controllers\ContactFormController::class, 'index'
+])->name('contact');
 
-Route::get('contact', 'ContactFormController@index');
-Route::post('contact', 'ContactFormController@store');
+Route::post('contact', [
+    \App\Http\Controllers\ContactFormController::class, 'store'
+])->name('contact.store');
+
+Auth::routes();

@@ -12,3 +12,6 @@
         </div>
     </div>
 @endsection
+@push('scripts')
+    <script src="{{ asset('/js/contact.js') }}"></script>
+@endpush
