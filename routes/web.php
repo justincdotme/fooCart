@@ -21,4 +21,8 @@ Route::post('contact', [
     \App\Http\Controllers\ContactFormController::class, 'store'
 ])->name('contact.store');
 
+Route::get('products', [
+    \App\Http\Controllers\ProductController::class, 'index'
+])->name('product.index');
+
 Auth::routes();
