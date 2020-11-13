@@ -67,6 +67,9 @@
     'username' => 'Mandrill username',
     'password' => 'Mandrill key',
  
+ Optional: Run `php artisan ide-helper:generate`
+ 
+ 
  **IMPORTANT NOTICE**
  
  This application is a portfolio project and is not intended to be used in a production capacity. 
