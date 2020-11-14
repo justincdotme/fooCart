@@ -22,7 +22,7 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'sku' => 'FK-' . $this->faker->unique()->randomDigit,
+            'sku' => 'FK-' . uniqid(),
             'manufacturer_id' => 1,
             'name' => 'Foo Product',
             'long_desc' => 'This is the rather long description of the product and all of it\'s qualities.',
@@ -43,6 +43,18 @@ class ProductFactory extends Factory
         return $this->state(function (array $attributes) {
             return [
                 'active' => true,
+            ];
+        });
+    }
+
+    /**
+     * @return ProductFactory
+     */
+    public function inactive()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'active' => false,
             ];
         });
     }
