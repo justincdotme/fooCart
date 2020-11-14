@@ -30,7 +30,7 @@ class ProductFactory extends Factory
             'unit_price' => 100.00,
             'sale_price' => null,
             'shipping_method_id' => 1,
-            'units_available' => '',
+            'units_available' => 0,
             'active' => false
         ];
     }
@@ -43,6 +43,30 @@ class ProductFactory extends Factory
         return $this->state(function (array $attributes) {
             return [
                 'active' => true,
+            ];
+        });
+    }
+
+    /**
+     * @return ProductFactory
+     */
+    public function inStock()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'units_available' => 20,
+            ];
+        });
+    }
+
+    /**
+     * @return ProductFactory
+     */
+    public function outOfStock()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'units_available' => 0,
             ];
         });
     }

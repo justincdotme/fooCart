@@ -21,4 +21,15 @@ class Product extends Model
     {
         return $query->where('active', true);
     }
+
+    /**
+     * Filter in stock products.
+     *
+     * @param $query
+     * @return mixed
+     */
+    public function scopeInStock($query)
+    {
+        return $query->where('units_available', '>', 0);
+    }
 }

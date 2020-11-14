@@ -20,4 +20,15 @@ class ProductTest extends TestCase
 
         $this->assertEquals(3, Product::active()->count());
     }
+
+    /**
+     * @test
+     */
+    public function in_stock_scope_only_contains_in_stock_products()
+    {
+        $inStockProducts = Product::factory()->count(2)->inStock()->create();
+        $soldOutProducts = Product::factory()->count(3)->outOfStock()->create();
+
+        $this->assertEquals(2, Product::inStock()->count());
+    }
 }
