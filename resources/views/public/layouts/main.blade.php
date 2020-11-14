@@ -23,6 +23,9 @@
 
             </ul>
             <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="{{ route('product.index') }}" class="nav-link">Products</a>
+                </li>
                 @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
