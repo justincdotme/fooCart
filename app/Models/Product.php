@@ -32,4 +32,14 @@ class Product extends Model
     {
         return $query->where('units_available', '>', 0);
     }
+
+    /**
+     * Establish a relationship to the manufacturer.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function manufacturer()
+    {
+        return $this->belongsTo(Manufacturer::class);
+    }
 }

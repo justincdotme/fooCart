@@ -24,8 +24,7 @@ class CreateProductsTable extends Migration
             //todo: product pricing should be refactored to be based on qty
             $table->decimal('unit_price', 19, 2)->nullable();
             $table->decimal('sale_price', 19, 2)->nullable();
-            $table->unsignedBigInteger('shipping_method_id')->index();
-            $table->foreign('shipping_method_id')->references('id')->on('shipping_methods')->onDelete('cascade');
+            //todo: product_shipping_method (xref)
             $table->integer('units_available');
             //todo: product availability should be based on pricing and inventory
             $table->boolean('active');

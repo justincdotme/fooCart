@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             ShippingProvidersTableSeeder::class,
             ShippingMethodsTableSeeder::class,
             ManufacturersTableSeeder::class,
+            ProductsTableSeeder::class
         ]);
     }
 }
