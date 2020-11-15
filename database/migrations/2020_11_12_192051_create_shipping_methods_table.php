@@ -18,6 +18,7 @@ class CreateShippingMethodsTable extends Migration
             $table->string('name');
             $table->unsignedBigInteger('shipping_provider_id')->index();
             $table->foreign('shipping_provider_id')->references('id')->on('shipping_providers')->onDelete('cascade');
+            $table->unique(['name', 'shipping_provider_id']);
             $table->timestamps();
         });
     }
