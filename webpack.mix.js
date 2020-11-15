@@ -15,5 +15,7 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
 
 
-mix.js('resources/js/contact.js', 'public/js')
-    .sass('resources/sass/contact.scss', 'public/css');
+mix.js('resources/js/contact.js', 'public/js');
+
+mix.js('resources/js/product/product-list.js', 'public/js/product');
+
