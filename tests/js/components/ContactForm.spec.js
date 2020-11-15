@@ -2,7 +2,7 @@ import ContactForm from "../../../resources/js/components/ContactForm";
 import {mount, createLocalVue} from "@vue/test-utils";
 import expect from 'expect';
 import moxios from 'moxios'
-import contactFormSnapshot from "../../../resources/js/stubs/ContactFormSnapshot";
+import contactFormSnapshot from "../stubs/ContactFormSnapshot";
 
 describe('ContactForm.vue', () => {
 
