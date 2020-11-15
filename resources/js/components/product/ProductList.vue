@@ -5,7 +5,7 @@
         <filterer @categorySelected="setCategory" :options="categories" type="category"></filterer>
       </div>
       <div class="col-sm">
-        <filterer @manufacturerSelected="setManufacturer" :options="manufacturers" type="manufacturer"></filterer>
+        <filterer @manufacturerSelected="setManufacturer" :options="getManufacturers()" type="manufacturer"></filterer>
       </div>
       <div class="col-sm">
         <div class="btn-group btn-group-sm pull-right">
@@ -27,24 +27,7 @@
 export default {
   data() {
     return {
-      categories: window.categories,
-      products: window.products,
-    }
-  },
-  computed: {
-    manufacturers() {
-      let manufacturers = this.products.map(function (p) {
-        return {id: p.manufacturer.id, name: p.manufacturer.name};
-      });
-
-      let uniqueManufacturers = Array.from(new Set(manufacturers.map(s => s.id)))
-        .map(id => {
-          return {
-            id: id,
-            name: manufacturers.find(s => s.id === id).name
-          }
-        });
-      return uniqueManufacturers;
+      categories: window.categories
     }
   },
   methods: {
@@ -54,6 +37,27 @@ export default {
     setCategory(catId) {
 
     },
+    getManufacturers() {
+      let manufacturers = window.products.map(function (p) {
+        return {
+          id: p.manufacturer.id,
+          name: p.manufacturer.name
+        };
+      });
+
+      manufacturers.unshift({
+        id: 0,
+        name: "Manufacturer"
+      });
+
+      return Array.from(new Set(manufacturers.map(m => m.id)))
+          .map(id => {
+            return {
+              id: id,
+              name: manufacturers.find(m => m.id === id).name
+            }
+          });
+    }
   }, components: {
     Filterer
   }

@@ -16,17 +16,7 @@ class ProductController extends Controller
     {
         $products = Product::active()
             ->inStock()
-            ->get([
-                'id',
-                'sku',
-                'name',
-                'short_desc',
-                'long_desc',
-                'unit_price',
-                'sale_price',
-                'units_available',
-                'active'
-            ]);
+            ->get();
 
         return view('public.templates.product.index', compact(
             'products'

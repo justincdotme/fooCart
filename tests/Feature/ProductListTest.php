@@ -3,6 +3,9 @@
 namespace Tests\Feature;
 
 use App\Models\Product;
+use Database\Seeders\ManufacturersTableSeeder;
+use Database\Seeders\ShippingMethodsTableSeeder;
+use Database\Seeders\ShippingProvidersTableSeeder;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -12,6 +15,7 @@ class ProductListTest extends TestCase
 {
     use DatabaseMigrations;
 
+
     protected $activeOutOfStock;
     protected $inactiveInStockProducts;
     protected $activeInStock;
@@ -20,6 +24,9 @@ class ProductListTest extends TestCase
     {
         parent::setUp();
 
+        $this->seed(ShippingProvidersTableSeeder::class);
+        $this->seed(ShippingMethodsTableSeeder::class);
+        $this->seed(ManufacturersTableSeeder::class);
         $this->activeOutOfStock = Product::factory()->count(2)->active()->outOfStock()->create();
         $this->inactiveInStockProducts = Product::factory()->count(3)->inactive()->inStock()->create();
         $this->activeInStock = Product::factory()->count(4)->active()->inStock()->create();

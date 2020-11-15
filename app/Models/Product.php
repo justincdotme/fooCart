@@ -11,6 +11,8 @@ class Product extends Model
 
     protected $guarded = [];
 
+    protected $with = ['manufacturer'];
+
     /**
      * Filter by active products.
      *

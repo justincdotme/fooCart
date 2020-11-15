@@ -29,7 +29,6 @@ class ProductFactory extends Factory
             'short_desc' => 'This is a short description.',
             'unit_price' => 100.00,
             'sale_price' => null,
-            'shipping_method_id' => 1,
             'units_available' => 0,
             'active' => false
         ];
