@@ -1,3 +1,8 @@
+# This project is archived and no longer maintained.
+
+> The code and its dependency tree may contain unpatched security vulnerabilities. It is preserved for archival purposes only and should not be used in any environment. No issues, pull requests, or updates will be accepted.
+
+---
 # fooCart
  fooCart is a Laravel 5 eCommerce application with integrated Stripe payments. 
  
